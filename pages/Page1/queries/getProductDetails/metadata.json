@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "name": "getProductDetails",
     "pageId": "Page1",
     "userSetOnLoad": false

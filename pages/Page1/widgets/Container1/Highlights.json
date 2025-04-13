@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 33,
+  "bottomRow": 26,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,9 +11,6 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
@@ -33,8 +30,8 @@
   "mobileRightColumn": 20,
   "mobileTopRow": 5,
   "needsErrorInfo": false,
-  "originalBottomRow": 46,
-  "originalTopRow": 33,
+  "originalBottomRow": 27,
+  "originalTopRow": 14,
   "overflow": "NONE",
   "parentColumnSpace": 4.802978515625,
   "parentId": "ml4yn1woyb",
@@ -43,10 +40,10 @@
   "responsiveBehavior": "fill",
   "rightColumn": 62,
   "shouldTruncate": false,
-  "text": "Highlights: <br/> {{\n  function() {\n    const highlights = getProductDetails.data[0].highlights;\n    if (!highlights) return \"No highlights available\";\n    \n    // Parse the highlights if they're stored as a string\n    let highlightArray;\n    try {\n      highlightArray = typeof highlights === 'string' ? JSON.parse(highlights) : highlights;\n    } catch (e) {\n      return highlights; // Return as is if parsing fails\n    }\n    \n    // Format as numbered list\n    if (Array.isArray(highlightArray)) {\n      return highlightArray.map((item, index) => `${index + 1}. ${item}`).join('\\n');\n    }\n    \n    return \"No highlights available\";\n  }()\n}}",
+  "text": "Highlights:\n\n1.\n2.",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 20,
+  "topRow": 13,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

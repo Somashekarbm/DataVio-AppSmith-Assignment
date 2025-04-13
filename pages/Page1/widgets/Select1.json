@@ -55,7 +55,7 @@
   "needsErrorInfo": false,
   "onDropdownOpen": "",
   "onFilterUpdate": "{{\n            QueryToFetchBrand.run();\n            \n          }}",
-  "onOptionChange": "{{QueryToFetchRelSKUs.run()}}",
+  "onOptionChange": "",
   "optionLabel": "label",
   "optionValue": "value",
   "parentColumnSpace": 14.234375,
