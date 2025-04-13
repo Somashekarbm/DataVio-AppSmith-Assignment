@@ -1,0 +1,5 @@
+SELECT 
+  id, 
+  jsonb_array_elements(promotion_history) as promotion_data
+FROM api_listingdata
+WHERE unique_identifier = {{Select3.selectedOptionValue}};

@@ -1,0 +1,5 @@
+SELECT page_content->>'title' as title, 
+       page_content->>'detailedDescription' as description, 
+       page_content->>'highlights' as highlights 
+FROM api_listingdata 
+WHERE unique_identifier = {{Select3.selectedOptionValue}};

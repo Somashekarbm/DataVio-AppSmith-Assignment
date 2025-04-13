@@ -1,0 +1,1 @@
+SELECT id as LABEL, name as VALUE FROM api_brands ORDER BY name ASC;

@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "arrow-right",
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lspm7huzty",
+  "leftColumn": 53,
+  "minWidth": 120,
+  "mobileBottomRow": 20,
+  "mobileLeftColumn": 30,
+  "mobileRightColumn": 46,
+  "mobileTopRow": 16,
+  "needsErrorInfo": false,
+  "onClick": "{{// Execute all queries first\n Title.setText(\"Title: \");\n  Desc.setText(\"Description: \");\n  Highlights.setText(\"Highlights: \");\n\n  // Clear stored chart data\n  storeValue('revenueChartData', []);\n  storeValue('promotionsChartData', []);\ngetProductDetails.run()\n  .then(() => MonthlyRevenueHistory.run())\n  .then(() => PromotionsHistory.run())\n  .then(() => {\n    // 1. Update Title, Description, and Highlights\n    if (getProductDetails.data && getProductDetails.data.length > 0) {\n      const product = getProductDetails.data[0];\n      \n      // Update Title with label\n      \n      Title.setText(\"Title: \" + `<br/>` + product.title || \"N/A\");\n      \n      // Update Description with label\n      \n      Desc.setText(\"Description: \" + `<br/>` +product.description || \"N/A\");\n      \n      // Update Highlights with label and content\n      \n      try {\n        const highlightsData = product.highlights;\n        let highlightsList = [];\n        const highlights = typeof highlightsData === 'string'\n          ? JSON.parse(highlightsData)\n          : highlightsData;\n        if (Array.isArray(highlights)) {\n          highlightsList = highlights.map((highlight, index) =>\n            `${index + 1}. ${highlight}`\n          );\n        }\n        Highlights.setText(\"Highlights: \" + `<br/>` +highlightsList.join('\\n') || \"No highlights available\");\n      } catch (e) {\n        Highlights.setText(\"Could not parse highlights data\");\n        showAlert(\"Error parsing highlights: \" + e.message, \"error\");\n      }\n    } else {\n      // Set labels and default text for no data case\n      \n      Title.setText(\"Title: No data available\");\n      \n      \n      Desc.setText(\"Description: No data available\");\n      \n      \n      Highlights.setText(\"Highlights: No data available\");\n    }\n    \n    // Store the chart data in app variables\n    storeValue('revenueChartData', MonthlyRevenueHistory.data.map(p => ({\n      x: p.revenue_data.date,\n      y: p.revenue_data.avg_monthly_revenue\n    })));\n    \n    storeValue('promotionsChartData', PromotionsHistory.data.map(p => ({\n      x: p.promotion_data.date,\n      y: p.promotion_data.value\n    })));\n    \n    showAlert(\"Dashboard updated successfully!\", \"success\");\n  })\n  .catch(error => {\n    showAlert(\"Error updating dashboard: \" + error.message, \"error\");\n  });\n}}",
+  "parentColumnSpace": 14.234375,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 60,
+  "text": "",
+  "topRow": 10,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "zv6g7k3a63",
+  "widgetName": "Button1"
+}

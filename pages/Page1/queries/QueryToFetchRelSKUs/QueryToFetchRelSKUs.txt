@@ -1,0 +1,6 @@
+SELECT 
+  id as value,
+  unique_identifier as label
+FROM api_listingdata 
+WHERE brand_id = {{Select2.selectedOptionValue}} 
+AND breadcrumb_category_id = {{Select1.selectedOptionValue}};

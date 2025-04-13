@@ -1,0 +1,1 @@
+SELECT id as VALUE, "categoryName" as LABEL FROM api_flipkartbreadcrumbcategories ORDER BY "categoryName" ASC;
